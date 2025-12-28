@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azzurra Calcio - Scuola Calcio</title>
+    <title>Azzurra Calcio - Scuola Calcio dal 2004</title>
     <style>
         * {
             margin: 0;
@@ -226,14 +226,19 @@
 
         .banner-section {
             background: white;
+            padding-bottom: 40px;
+        }
+
+        .banner-section-alt {
+            background: #f8f9fa;
+            padding: 80px 20px;
         }
 
         .banner-container {
             margin-bottom: 50px;
             text-align: center;
-            background: #f8f9fa;
-            padding: 40px 20px;
-            border-radius: 15px;
+            background: transparent;
+            padding: 20px;
         }
 
         .banner-image {
@@ -510,6 +515,23 @@
                 font-size: 1.8em;
             }
 
+            .story-content {
+                padding: 30px 20px;
+            }
+
+            .story-title {
+                font-size: 1.8em;
+            }
+
+            .story-paragraph {
+                font-size: 1em;
+                text-align: left;
+            }
+
+            .banner-container {
+                padding: 20px 10px;
+            }
+
             .timeline {
                 flex-direction: column;
             }
@@ -620,6 +642,22 @@
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <img src="https://i.imgur.com/placeholder.jpg" alt="Azzurra Calcio" class="header-logo">
+                <div class="header-title">AZZURRA CALCIO</div>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#storia">Storia</a></li>
+                <li><a href="#scuola-calcio">Scuola Calcio</a></li>
+                <li><a href="#centro-sportivo">Centro Sportivo</a></li>
+                <li><a href="#punti-forza">Punti di Forza</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </div>
+    </header>
 
     <div class="hero">
         <div class="logo-container">
@@ -653,14 +691,13 @@
         </div>
     </div>
 
-    <div class="section banner-section" id="storia-completa">
+    <!-- SEZIONE 1: SCUOLA CALCIO -->
+    <div class="section banner-section" id="scuola-calcio">
         <div class="banner-container">
-            <img src="https://i.imgur.com/BANNER-PLACEHOLDER.jpg" alt="Azzurra Scuola Calcio Banner" class="banner-image">
+            <img src="https://i.imgur.com/SCUOLA-CALCIO-BANNER.jpg" alt="Azzurra Scuola Calcio" class="banner-image">
         </div>
         
         <div class="story-content">
-            <h2 class="story-title">La Nostra Storia</h2>
-            
             <p class="story-paragraph">
                 <strong>Michele Bruno</strong> sceglie il delfino, simbolo di amicizia, empatia, altruismo e giovialità.
             </p>
@@ -672,11 +709,16 @@
             <p class="story-paragraph">
                 Nasce una piccola realtà di provincia chiamata <strong>Scuola Calcio Azzurra</strong>. Una ventina tra bambini e ragazzi iniziano a giocare nel campo in terra battuta del paese ⚽
             </p>
-            
-            <p class="story-paragraph">
-                <strong>Grottaminarda, 26 Agosto 2024</strong> 📝
-            </p>
-            
+        </div>
+    </div>
+
+    <!-- SEZIONE 2: CENTRO SPORTIVO -->
+    <div class="section banner-section-alt" id="centro-sportivo">
+        <div class="banner-container">
+            <img src="https://i.imgur.com/CENTRO-SPORTIVO-BANNER.jpg" alt="Azzurra Centro Sportivo" class="banner-image">
+        </div>
+        
+        <div class="story-content">
             <p class="story-paragraph">
                 20 anni dopo l'Azzurra diventa una delle Scuole Calcio più grandi in Campania con oltre 200 iscritti e un palmarès di quasi 100 trofei vinti in tutta Italia 🇮🇹
             </p>
@@ -787,4 +829,3 @@
     </script>
 </body>
 </html>
-
