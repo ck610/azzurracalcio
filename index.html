@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scuola Calcio Azzurra Calcio</title>
+    <title>Azzurra Calcio - Scuola Calcio dal 2004</title>
     <style>
         * {
             margin: 0;
@@ -222,6 +222,70 @@
         .highlight {
             color: #ffc107;
             font-weight: bold;
+        }
+
+        .banner-section {
+            background: white;
+        }
+
+        .banner-container {
+            margin-bottom: 50px;
+            text-align: center;
+            background: #f8f9fa;
+            padding: 40px 20px;
+            border-radius: 15px;
+        }
+
+        .banner-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .story-title {
+            font-size: 2.5em;
+            color: #0066cc;
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .story-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #ffc107;
+        }
+
+        .story-paragraph {
+            font-size: 1.2em;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .story-continue {
+            text-align: center;
+            font-size: 1.4em;
+            color: #0066cc;
+            margin-top: 40px;
+            font-style: italic;
         }
 
         .players-section {
@@ -556,10 +620,25 @@
     </style>
 </head>
 <body>
+    <header class="header">
+        <div class="header-content">
+            <div class="header-left">
+                <img src="https://i.imgur.com/placeholder.jpg" alt="Azzurra Calcio" class="header-logo">
+                <div class="header-title">AZZURRA CALCIO</div>
+            </div>
+            <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#storia">Storia</a></li>
+                <li><a href="#numeri">Numeri</a></li>
+                <li><a href="#punti-forza">Punti di Forza</a></li>
+                <li><a href="#contatti">Contatti</a></li>
+            </ul>
+        </div>
+    </header>
 
     <div class="hero">
         <div class="logo-container">
-            <img src="logoazzurra.jpeg" alt="Azzurra Calcio Logo" class="logo">
+            <img src="https://i.imgur.com/placeholder.jpg" alt="Azzurra Calcio Logo" class="logo">
         </div>
         <h1>AZZURRA CALCIO</h1>
         <p class="tagline">Passione, Formazione, Eccellenza dal 2004</p>
@@ -589,25 +668,41 @@
         </div>
     </div>
 
-    <div class="section players-section" id="numeri">
-        <h2 class="section-title">I Nostri Numeri</h2>
-        <div class="players-grid">
-            <div class="player-stat">
-                <span class="stat-number">20+</span>
-                <p>Giocatori promossi ai professionisti</p>
-            </div>
-            <div class="player-stat">
-                <span class="stat-number">21</span>
-                <p>Anni di attività</p>
-            </div>
-            <div class="player-stat">
-                <span class="stat-number">400+</span>
-                <p>Ragazzi formati</p>
-            </div>
-            <div class="player-stat">
-                <span class="stat-number">100%</span>
-                <p>Passione e dedizione</p>
-            </div>
+    <div class="section banner-section" id="storia-completa">
+        <div class="banner-container">
+            <img src="https://i.imgur.com/BANNER-PLACEHOLDER.jpg" alt="Azzurra Scuola Calcio Banner" class="banner-image">
+        </div>
+        
+        <div class="story-content">
+            <h2 class="story-title">La Nostra Storia</h2>
+            
+            <p class="story-paragraph">
+                <strong>Michele Bruno</strong> sceglie il delfino, simbolo di amicizia, empatia, altruismo e giovialità.
+            </p>
+            
+            <p class="story-paragraph">
+                Ci abbina i colori del sole e del cielo 💛💙
+            </p>
+            
+            <p class="story-paragraph">
+                Nasce una piccola realtà di provincia chiamata <strong>Scuola Calcio Azzurra</strong>. Una ventina tra bambini e ragazzi iniziano a giocare nel campo in terra battuta del paese ⚽
+            </p>
+            
+            <p class="story-paragraph">
+                <strong>Grottaminarda, 26 Agosto 2024</strong> 📝
+            </p>
+            
+            <p class="story-paragraph">
+                20 anni dopo l'Azzurra diventa una delle Scuole Calcio più grandi in Campania con oltre 200 iscritti e un palmarès di quasi 100 trofei vinti in tutta Italia 🇮🇹
+            </p>
+            
+            <p class="story-paragraph">
+                Ben <strong>18 calciatori</strong> cresciuti in questa scuola sono stati trasferiti in vari club professionistici di prestigio, uno di questi è stato convocato dalla Nazionale Italiana a Coverciano. Con l'inaugurazione del Centro Sportivo di proprietà e un anniversario storico, l'Azzurra presenta il nuovo bellissimo LOGO 🐬
+            </p>
+            
+            <p class="story-paragraph story-continue">
+                <strong>La Storia Continua...</strong>
+            </p>
         </div>
     </div>
 
@@ -706,7 +801,4 @@
         });
     </script>
 </body>
-
 </html>
-
-
