@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azzurra Calcio - Scuola Calcio dal 2004</title>
+    <title>Azzurra Calcio - Scuola Calcio</title>
     <style>
         * {
             margin: 0;
@@ -97,38 +97,216 @@
             overflow: hidden;
         }
 
+        /* EFFETTO ONDE ANIMATE */
         .hero::before {
             content: '';
             position: absolute;
-            width: 300px;
-            height: 300px;
-            background: #ffc107;
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            opacity: 0.3;
+            width: 400%;
+            height: 400%;
+            background: radial-gradient(circle, rgba(255,193,7,0.15) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateWave 30s linear infinite;
         }
 
         .hero::after {
             content: '';
             position: absolute;
-            width: 200px;
-            height: 200px;
-            background: #ffc107;
-            border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            opacity: 0.3;
+            width: 300%;
+            height: 300%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rotateWave 20s linear infinite reverse;
         }
 
+        @keyframes rotateWave {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+
+        /* PALLONI DA CALCIO ANIMATI */
+        .soccer-ball {
+            position: absolute;
+            font-size: 40px;
+            opacity: 0;
+            animation: floatBall 15s infinite ease-in-out;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
+        }
+
+        .soccer-ball:nth-child(1) {
+            top: 15%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .soccer-ball:nth-child(2) {
+            top: 70%;
+            left: 85%;
+            animation-delay: 3s;
+        }
+
+        .soccer-ball:nth-child(3) {
+            top: 85%;
+            left: 15%;
+            animation-delay: 6s;
+        }
+
+        .soccer-ball:nth-child(4) {
+            top: 30%;
+            left: 80%;
+            animation-delay: 9s;
+        }
+
+        .soccer-ball:nth-child(5) {
+            top: 50%;
+            left: 5%;
+            animation-delay: 12s;
+        }
+
+        @keyframes floatBall {
+            0% {
+                opacity: 0;
+                transform: translateY(0) rotate(0deg) scale(0.5);
+            }
+            10% {
+                opacity: 0.6;
+            }
+            50% {
+                transform: translateY(-50px) rotate(180deg) scale(1);
+            }
+            90% {
+                opacity: 0.6;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(0) rotate(360deg) scale(0.5);
+            }
+        }
+
+        /* PARTICELLE LUMINOSE */
+        .particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            background: rgba(255, 193, 7, 0.8);
+            border-radius: 50%;
+            box-shadow: 0 0 10px rgba(255, 193, 7, 0.8);
+            animation: rise 12s infinite ease-in;
+        }
+
+        .particle:nth-child(even) {
+            background: rgba(255, 255, 255, 0.6);
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes rise {
+            0% {
+                bottom: -10%;
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                bottom: 110%;
+                opacity: 0;
+            }
+        }
+
+        /* STELLE SCINTILLANTI */
+        .star {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite ease-in-out;
+        }
+
+        @keyframes twinkle {
+            0%, 100% {
+                opacity: 0;
+                transform: scale(0);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.5);
+                box-shadow: 0 0 15px white;
+            }
+        }
+
+        /* LOGO CONTAINER CON EFFETTO GLOW */
         .logo-container {
             margin-bottom: 30px;
-            animation: fadeInDown 1s ease-out;
+            animation: fadeInDown 1.5s ease-out, logoFloat 3s ease-in-out infinite;
             z-index: 1;
             background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            padding: 25px;
+            border-radius: 25px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3), 
+                        0 0 30px rgba(255,193,7,0.4);
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .logo-container::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(45deg, #ffc107, #0066cc, #ffc107);
+            border-radius: 25px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .logo-container:hover::before {
+            opacity: 1;
+            animation: rotateBorder 3s linear infinite;
+        }
+
+        @keyframes rotateBorder {
+            0% {
+                filter: hue-rotate(0deg);
+            }
+            100% {
+                filter: hue-rotate(360deg);
+            }
+        }
+
+        .logo-container:hover {
+            transform: scale(1.1) rotate(3deg);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 
+                        0 0 50px rgba(255,193,7,0.6);
+        }
+
+        @keyframes logoFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
         }
 
         .logo {
@@ -137,20 +315,117 @@
             display: block;
         }
 
+        /* TITOLO CON EFFETTI */
         h1 {
             color: white;
             font-size: 3.5em;
             margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out 0.3s backwards;
+            animation: fadeInUp 1.5s ease-out 0.3s backwards, textGlow 2s ease-in-out infinite alternate;
             z-index: 1;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3),
+                         0 0 20px rgba(255,193,7,0.5);
+            position: relative;
+            letter-spacing: 3px;
         }
 
+        @keyframes textGlow {
+            0% {
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.3),
+                             0 0 20px rgba(255,193,7,0.5);
+            }
+            100% {
+                text-shadow: 2px 2px 10px rgba(0,0,0,0.3),
+                             0 0 40px rgba(255,193,7,0.8),
+                             0 0 60px rgba(255,193,7,0.6);
+            }
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, #ffc107, transparent);
+            animation: expandLine 2s ease-out 1.8s forwards;
+            box-shadow: 0 0 10px #ffc107;
+        }
+
+        @keyframes expandLine {
+            to {
+                width: 100%;
+            }
+        }
+
+        /* TAGLINE CON EFFETTO TYPING */
         .tagline {
             color: #ffc107;
             font-size: 1.5em;
             margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
+            animation: fadeInUp 1.5s ease-out 0.9s backwards;
+            z-index: 1;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3),
+                         0 0 20px rgba(255,193,7,0.3);
+            font-weight: 500;
+        }
+
+        /* PULSANTE CTA ANIMATO */
+        .cta-button {
+            background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+            color: #0066cc;
+            padding: 18px 45px;
+            font-size: 1.3em;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            z-index: 1;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(255,193,7,0.4);
+            animation: fadeInUp 1.5s ease-out 1.2s backwards, buttonPulse 2s infinite;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.5);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255,193,7,0.6);
+        }
+
+        @keyframes buttonPulse {
+            0%, 100% {
+                box-shadow: 0 10px 30px rgba(255,193,7,0.4);
+            }
+            50% {
+                box-shadow: 0 10px 40px rgba(255,193,7,0.7);
+            }
+        }
+
+        .cta-button span {
+            position: relative;
             z-index: 1;
         }
 
@@ -493,6 +768,7 @@
 
             h1 {
                 font-size: 2em;
+                letter-spacing: 1px;
             }
 
             .tagline {
@@ -505,6 +781,15 @@
 
             .logo {
                 width: 150px;
+            }
+
+            .cta-button {
+                padding: 15px 35px;
+                font-size: 1.1em;
+            }
+
+            .soccer-ball {
+                font-size: 30px;
             }
 
             .section {
@@ -596,6 +881,11 @@
                 width: 100px;
             }
 
+            .cta-button {
+                padding: 12px 25px;
+                font-size: 1em;
+            }
+
             .section {
                 padding: 40px 10px;
             }
@@ -652,11 +942,45 @@
 <body>
     
     <div class="hero">
+        <!-- Palloni da calcio animati -->
+        <div class="soccer-ball">⚽</div>
+        <div class="soccer-ball">⚽</div>
+        <div class="soccer-ball">⚽</div>
+        <div class="soccer-ball">⚽</div>
+        <div class="soccer-ball">⚽</div>
+        
+        <!-- Particelle luminose -->
+        <div class="particles">
+            <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+            <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
+            <div class="particle" style="left: 30%; animation-delay: 4s;"></div>
+            <div class="particle" style="left: 40%; animation-delay: 1s;"></div>
+            <div class="particle" style="left: 50%; animation-delay: 3s;"></div>
+            <div class="particle" style="left: 60%; animation-delay: 5s;"></div>
+            <div class="particle" style="left: 70%; animation-delay: 2.5s;"></div>
+            <div class="particle" style="left: 80%; animation-delay: 4.5s;"></div>
+            <div class="particle" style="left: 90%; animation-delay: 1.5s;"></div>
+            <div class="particle" style="left: 15%; animation-delay: 6s;"></div>
+            <div class="particle" style="left: 25%; animation-delay: 7s;"></div>
+            <div class="particle" style="left: 35%; animation-delay: 8s;"></div>
+        </div>
+
+        <!-- Stelle scintillanti -->
+        <div class="star" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
+        <div class="star" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
+        <div class="star" style="top: 60%; left: 10%; animation-delay: 2s;"></div>
+        <div class="star" style="top: 75%; left: 85%; animation-delay: 1.5s;"></div>
+        <div class="star" style="top: 40%; left: 70%; animation-delay: 0.5s;"></div>
+        <div class="star" style="top: 55%; left: 25%; animation-delay: 2.5s;"></div>
+        
         <div class="logo-container">
             <img src="logoazzurra.jpeg" alt="Azzurra Calcio Logo" class="logo">
         </div>
         <h1>AZZURRA CALCIO</h1>
-        <p class="tagline">Rinomata e Storica Scuola Calcio irpina di eccelenza ⚽</p>
+        <p class="tagline">Rinomata e Storica Scuola Calcio irpina di eccellenza ⚽</p>
+        <a href="#fratelli-bruno" class="cta-button">
+            <span>Scopri la Nostra Storia</span>
+        </a>
     </div>
 
     <!-- SEZIONE FRATELLI BRUNO -->
@@ -673,199 +997,10 @@
             </p>
             
             <p class="story-paragraph">
-                A Settembre, con il trasferimento di Matteo Biondi al Benevento, è salito a 19 il numero di giovani talenti cresciuti nell'accademia grottese e trasferiti in Club Professionistici, un vero e proprio record per una Scuola Calcio che svolge tutte le attività nel proprio Centro Sportivo di oltre 20.000 metri quadri, diventato un riferimento polifunzionale per centinaia di bambini, ma anche adulti e famiglie provenienti da ogni angolo d'Irpinia.
+                A settembre, con il trasferimento di Matteo Biondi al Benevento, è salito a 19 il numero di giovani talenti cresciuti nell'accademia grottese e trasferiti in Club Professionistici, un vero e proprio record per una Scuola Calcio che svolge tutte le attività nel proprio Centro Sportivo di oltre 20.000 metri quadri, diventato un riferimento polifunzionale per centinaia di bambini, ma anche adulti e famiglie provenienti da ogni angolo d'Irpinia.
             </p>
             
             <p class="story-paragraph">
                 Campus Estivo, party privati ed esclusivi con eventi personalizzati, allenamenti e ritiri per società sportive, il Centro Sportivo Azzurra non è solo calcio e la famiglia Bruno celebra un record di presenze ad appena un anno dall'inaugurazione.
             </p>
         </div>
-        
-        <div class="banner-container">
-            <img src="fotoantonioestefano.jpg.jpeg" alt="Fratelli Antonio e Stefano Bruno" class="banner-image">
-        </div>
-    </div>
-
-    <!-- SEZIONE 1: SCUOLA CALCIO -->
-    <div class="section banner-section-alt" id="scuola-calcio">
-        <div class="story-content">
-            <h3 class="story-title">La Storia della Scuola Calcio Azzurra</h3>
-            
-            <p class="story-paragraph">
-                Il 26 agosto 2004 segna l'inizio di una nuova realtà calcistica a Grottaminarda, in provincia di Avellino. Un grande appassionato di calcio, ex portiere professionista, Michele Bruno, decide di trasformare il suo amore per lo sport in un progetto educativo e sociale, avviando le pratiche burocratiche per fondare un'associazione sportiva dilettantistica a carattere giovanile.
-            </p>
-            
-            <p class="story-paragraph">
-                Il simbolo scelto per la scuola calcio è il delfino animale che incarna perfettamente i valori che si volevamo trasmettere: amicizia, empatia, altruismo e giovialità. Ai valori del delfino si abbinano i colori del sole e del cielo: giallo e blu, per dare vita ad un'identità visiva chiara, gioiosa e fortemente rappresentativa.
-            </p>
-            
-            <p class="story-paragraph">
-                Così nasce la <strong>Scuola Calcio Azzurra</strong>, una realtà che sin dall'inizio ha posto al centro il bambino, non solo come atleta ma come persona in crescita. L'obiettivo principale non era semplicemente insegnare il calcio, ma promuovere il divertimento, contrastare la sedentarietà e avvicinare i giovani all'attività motoria. Fin dal primo anno, una ventina tra bambini e ragazzi iniziarono a muovere i loro primi passi calcistici sul campo in terra battuta del paese di Grottaminarda. I risultati tecnici non tardarono ad arrivare, con le prime soddisfazioni in ambito provinciale.
-            </p>
-            
-            <p class="story-paragraph">
-                Nei tornei, ma i traguardi più significativi furono raggiunti sul piano umano e sociale.
-            </p>
-            
-            <p class="story-paragraph">
-                L'Azzurra si distinse fin da subito per iniziative solidali: donazioni a favore dell'UNICEF e il sostegno a distanza di un bambino fino al compimento del diciotto anni, con invio periodico di materiale sportivo in un villaggio in Kenya, tra cui borsoni, tute, borracce, attrezzatura. Questo aspetto evidenzia come la scuola calcio non si sia mai limitata all'insegnamento tecnico, ma abbia voluto trasmettere ai giovani calciatori valori di solidarietà, rispetto e apertura verso il mondo.
-            </p>
-            
-            <p class="story-paragraph">
-                Con il passare degli anni, l'Azzurra è cresciuta fino a diventare una delle scuole calcio più grandi della Campania, con oltre 250 iscritti e un palmarès di quasi 100 trofei vinti in tutta Italia. Il percorso educativo e sportivo ha portato frutti anche in termini di talento calcistico: diciannove ragazzi cresciuti nella società hanno poi militato in club prestigiosi e uno di loro ha persino raggiunto la convocazione a Coverciano con la Nazionale italiana.
-            </p>
-        </div>
-        
-        <div class="banner-container">
-            <img src="bannerscuolacalcio.jpg" alt="Azzurra Scuola Calcio" class="banner-image">
-        </div>
-    </div>
-
-    <!-- SEZIONE 2: CENTRO SPORTIVO -->
-    <div class="section banner-section" id="centro-sportivo">
-        <div class="story-content">
-            <p class="story-paragraph">
-                Il 3 agosto 2024 segna una tappa fondamentale della sua storia: l'inaugurazione del nuovo centro sportivo Azzurra, una struttura di oltre ventimila metri quadri, con un'area dedicata non solo al calcio, ma anche al benessere, al relax e al divertimento. Questo traguardo dimostra come il progetto iniziale abbia preso forma nel tempo e ora si traduca in una realtà strutturata, moderna e aperta a tutta la comunità.
-            </p>
-            
-            <p class="story-paragraph">
-                La SSD Azzurra Calcio rappresenta oggi un esempio virtuoso di come il calcio giovanile possa essere strumento educativo, sociale e formativo, capace di trasformare una passione in un punto di riferimento territoriale grazie all'impegno costante di Michele Bruno e dei figli Antonio e Stefano.
-            </p>
-            
-            <p class="story-paragraph story-continue">
-                <strong>La Storia Continua...</strong>
-            </p>
-        </div>
-        
-        <div class="banner-container">
-            <img src="bannercentrosportivo.jpg" alt="Azzurra Centro Sportivo" class="banner-image">
-        </div>
-    </div>
-
-    <div class="section history-section" id="storia">
-        <h2 class="section-title">Oltre 20 anni di Storia</h2>
-        <div class="timeline">
-            <div class="timeline-item">
-                <div class="timeline-number">2004</div>
-                <div class="timeline-text">
-                    Nasce <span class="highlight">Azzurra Calcio</span>, con la missione di formare giovani talenti e trasmettere i valori dello sport
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">20+</div>
-                <div class="timeline-text">
-                    Anni di <span class="highlight">esperienza</span> nel settore giovanile, crescendo generazioni di calciatori
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-number">2025</div>
-                <div class="timeline-text">
-                    Continuiamo a guardare al <span class="highlight">futuro</span> con entusiasmo e dedizione
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section achievements-section" id="punti-forza">
-        <h2 class="section-title">I Nostri Punti di Forza</h2>
-        <div class="achievements-grid">
-            <div class="achievement-card">
-                <div class="achievement-icon">⚽</div>
-                <div class="achievement-title">Formazione Tecnica</div>
-                <div class="achievement-text">
-                    Programmi di allenamento personalizzati per ogni fascia d'età, con focus sullo sviluppo tecnico individuale
-                </div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🏆</div>
-                <div class="achievement-title">Risultati Concreti</div>
-                <div class="achievement-text">
-                    Oltre 19 ragazzi promossi ai professionisti, inclusi giocatori che militano nel Benevento Calcio
-                </div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">👨‍🏫</div>
-                <div class="achievement-title">Staff Qualificato</div>
-                <div class="achievement-text">
-                    Allenatori con patentini UEFA e anni di esperienza nel settore giovanile
-                </div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🤝</div>
-                <div class="achievement-title">Valori Sportivi</div>
-                <div class="achievement-text">
-                    Educhiamo attraverso il calcio: rispetto, fair play, lavoro di squadra e determinazione
-                </div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">🏟️</div>
-                <div class="achievement-title">Centro Sportivo</div>
-                <div class="achievement-text">
-                    Strutture moderne e sicure per garantire il miglior ambiente di crescita
-                </div>
-            </div>
-            <div class="achievement-card">
-                <div class="achievement-icon">👦</div>
-                <div class="achievement-title">Tutte le Categorie</div>
-                <div class="achievement-text">
-                    Seguiamo i ragazzi dalla scuola calcio fino alle categorie superiori
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="section contact-section" id="contatti">
-        <h2 class="section-title">Seguici e Contattaci</h2>
-        <p style="font-size: 1.2em; color: #0066cc; margin-bottom: 20px;">
-            Resta aggiornato sulle nostre attività e scopri come entrare a far parte della famiglia Azzurra!
-        </p>
-        <div class="social-links">
-            <a href="https://www.tiktok.com/@scuolacalcioazzurra" target="_blank" class="social-link">
-                <div class="social-icon">📱</div>
-                <div class="social-name">TikTok</div>
-                <div>@scuolacalcioazzurra</div>
-            </a>
-            <a href="https://www.instagram.com/scuolacalcioazzurra" target="_blank" class="social-link">
-                <div class="social-icon">📸</div>
-                <div class="social-name">Instagram</div>
-                <div>@scuolacalcioazzurra</div>
-            </a>
-            <a href="https://www.instagram.com/centrosportivoazzurracalcio" target="_blank" class="social-link">
-                <div class="social-icon">🏟️</div>
-                <div class="social-name">Instagram Centro Sportivo</div>
-                <div>@centrosportivoazzurracalcio</div>
-            </a>
-            <a href="https://m.facebook.com/profile" target="_blank" class="social-link">
-                <div class="social-icon">👍</div>
-                <div class="social-name">Facebook</div>
-                <div>Azzurra Calcio</div>
-            </a>
-        </div>
-    </div>
-
-    <footer>
-        <p>&copy; 2004-2025 Azzurra Calcio - Tutti i diritti riservati</p>
-        <p style="margin-top: 10px; opacity: 0.8;">Formiamo campioni dentro e fuori dal campo</p>
-    </footer>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-    </script>
-</body>
-</html>
-
-
-
-
-
-
-
