@@ -17,645 +17,42 @@
             overflow-x: hidden;
         }
 
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: rgba(0, 102, 204, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 10px 20px;
-            z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
-        }
-
-        .header-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 20px;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .header-logo {
-            height: 50px;
-            width: auto;
-        }
-
-        .header-title {
-            color: white;
-            font-size: 1.5em;
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-            white-space: nowrap;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding: 5px 10px;
-        }
-
-        .nav-links a:hover {
-            color: #ffc107;
-        }
-
-        .menu-toggle {
+        /* BLOCCO DEVTOOLS OVERLAY */
+        #devtools-blocker {
             display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.8em;
-            cursor: pointer;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            position: fixed;
+            inset: 0;
+            background: #0066cc;
+            z-index: 99999;
             justify-content: center;
             align-items: center;
-            text-align: center;
-            padding: 120px 20px 40px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: #ffc107;
-            border-radius: 50%;
-            top: -100px;
-            right: -100px;
-            opacity: 0.3;
-        }
-
-        .hero::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            background: #ffc107;
-            border-radius: 50%;
-            bottom: -50px;
-            left: -50px;
-            opacity: 0.3;
-        }
-
-        .logo-container {
-            margin-bottom: 30px;
-            animation: fadeInDown 1s ease-out;
-            z-index: 1;
-            background: white;
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
-        }
-
-        .logo {
-            width: 220px;
-            height: auto;
-            display: block;
-        }
-
-        h1 {
-            color: white;
-            font-size: 3.5em;
-            margin-bottom: 20px;
-            animation: fadeInUp 1s ease-out 0.3s backwards;
-            z-index: 1;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
-        }
-
-        .tagline {
-            color: #ffc107;
-            font-size: 1.5em;
-            margin-bottom: 40px;
-            animation: fadeInUp 1s ease-out 0.6s backwards;
-            z-index: 1;
-        }
-
-        .section {
-            padding: 80px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            font-size: 2.5em;
-            color: #0066cc;
-            text-align: center;
-            margin-bottom: 50px;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #ffc107;
-        }
-
-        .history-section {
-            background: #f8f9fa;
-        }
-
-        .timeline {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-        }
-
-        .timeline-item {
-            background: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            flex: 1;
-            min-width: 250px;
-            max-width: 350px;
-            transition: transform 0.3s ease;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-10px);
-        }
-
-        .timeline-number {
-            font-size: 3em;
-            color: #0066cc;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .timeline-text {
-            font-size: 1.2em;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .highlight {
-            color: #ffc107;
-            font-weight: bold;
-        }
-
-        .banner-section {
-            background: white;
-            padding-bottom: 40px;
-        }
-
-        .banner-section-alt {
-            background: #f8f9fa;
-            padding: 80px 20px;
-        }
-
-        .banner-container {
-            margin-bottom: 50px;
-            text-align: center;
-            background: transparent;
-            padding: 20px;
-        }
-
-        .banner-image {
-            max-width: 60%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .story-content {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-        }
-
-        .story-title {
-            font-size: 2.5em;
-            color: #0066cc;
-            text-align: center;
-            margin-bottom: 40px;
-            position: relative;
-            padding-bottom: 20px;
-        }
-
-        .story-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: #ffc107;
-        }
-
-        .story-paragraph {
-            font-size: 1.2em;
-            line-height: 1.8;
-            color: #333;
-            margin-bottom: 20px;
-            text-align: justify;
-        }
-
-        .story-continue {
-            text-align: center;
-            font-size: 1.4em;
-            color: #0066cc;
-            margin-top: 40px;
-            font-style: italic;
-        }
-
-        .players-section {
-            background: linear-gradient(135deg, #0066cc 0%, #004d99 100%);
-            color: white;
-        }
-
-        .players-section .section-title {
-            color: white;
-        }
-
-        .players-section .section-title::after {
-            background: white;
-        }
-
-        .players-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            flex-direction: column;
             gap: 20px;
-            text-align: center;
         }
 
-        .player-stat {
-            background: rgba(255,255,255,0.1);
-            padding: 30px 20px;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
+        #devtools-blocker.active {
+            display: flex;
         }
 
-        .player-stat:hover {
-            background: rgba(255,255,255,0.2);
-            transform: scale(1.05);
+        #devtools-blocker img {
+            width: 120px;
+            height: auto;
+            filter: drop-shadow(0 0 20px rgba(255,193,7,0.8));
         }
 
-        .stat-number {
-            font-size: 3.5em;
+        #devtools-blocker h2 {
             color: #ffc107;
-            font-weight: bold;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .achievements-section {
-            background: white;
-        }
-
-        .achievements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        .achievement-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 5px solid #ffc107;
-            transition: all 0.3s ease;
-        }
-
-        .achievement-card:hover {
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            transform: translateX(10px);
-        }
-
-        .achievement-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
-
-        .achievement-title {
-            font-size: 1.3em;
-            color: #0066cc;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .achievement-text {
-            color: #666;
-            line-height: 1.6;
-        }
-
-        .contact-section {
-            background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
+            font-size: 2em;
             text-align: center;
+            text-shadow: 0 0 20px rgba(255,193,7,0.5);
         }
 
-        .contact-section .section-title {
-            color: #0066cc;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            margin-top: 40px;
-        }
-
-        .social-link {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #0066cc;
-            transition: transform 0.3s ease;
-            padding: 20px;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            min-width: 150px;
-        }
-
-        .social-link:hover {
-            transform: scale(1.1);
-        }
-
-        .social-icon {
-            font-size: 3em;
-        }
-
-        .social-name {
-            font-weight: bold;
+        #devtools-blocker p {
+            color: white;
             font-size: 1.1em;
-        }
-
-        footer {
-            background: #1a1a1a;
-            color: white;
             text-align: center;
-            padding: 30px 20px;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* RESPONSIVE MOBILE */
-        @media (max-width: 768px) {
-            .header {
-                padding: 10px 15px;
-            }
-
-            .header-content {
-                flex-wrap: wrap;
-            }
-
-            .header-left {
-                gap: 10px;
-            }
-
-            .header-title {
-                font-size: 1em;
-            }
-
-            .header-logo {
-                height: 40px;
-            }
-
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                text-align: center;
-                padding-top: 15px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero {
-                padding: 100px 20px 40px;
-                min-height: 90vh;
-            }
-
-            h1 {
-                font-size: 2em;
-            }
-
-            .tagline {
-                font-size: 1em;
-            }
-
-            .logo-container {
-                padding: 15px;
-            }
-
-            .logo {
-                width: 150px;
-            }
-
-            .section {
-                padding: 50px 15px;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .story-content {
-                padding: 30px 20px;
-            }
-
-            .story-title {
-                font-size: 1.8em;
-            }
-
-            .story-paragraph {
-                font-size: 1em;
-                text-align: left;
-            }
-
-            .banner-container {
-                padding: 20px 10px;
-            }
-
-            .banner-image {
-                max-width: 90%;
-            }
-
-            .timeline {
-                flex-direction: column;
-            }
-
-            .timeline-item {
-                max-width: 100%;
-            }
-
-            .players-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .player-stat {
-                padding: 20px 10px;
-            }
-
-            .stat-number {
-                font-size: 2.5em;
-            }
-
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                gap: 15px;
-            }
-
-            .social-link {
-                min-width: 130px;
-                padding: 15px;
-            }
-
-            .social-icon {
-                font-size: 2em;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header-title {
-                font-size: 0.9em;
-            }
-
-            .header-logo {
-                height: 35px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            .tagline {
-                font-size: 0.85em;
-            }
-
-            .logo {
-                width: 100px;
-            }
-
-            .section {
-                padding: 40px 10px;
-            }
-
-            .section-title {
-                font-size: 1.5em;
-            }
-
-            .timeline-number {
-                font-size: 2em;
-            }
-
-            .timeline-text {
-                font-size: 1em;
-            }
-
-            .players-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .stat-number {
-                font-size: 2em;
-            }
-
-            .achievement-icon {
-                font-size: 2em;
-            }
-
-            .social-link {
-                min-width: 110px;
-                padding: 12px;
-            }
-
-            .banner-image {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 360px) {
-            .header-title {
-                font-size: 0.8em;
-            }
-
-            h1 {
-                font-size: 1.3em;
-            }
-
-            .logo {
-                width: 100px;
-            }
-        }
-		            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #333;
-            overflow-x: hidden;
+            max-width: 400px;
+            line-height: 1.6;
         }
 
         .header {
@@ -738,7 +135,6 @@
             overflow: hidden;
         }
 
-        /* EFFETTO ONDE ANIMATE */
         .hero::before {
             content: '';
             position: absolute;
@@ -764,15 +160,10 @@
         }
 
         @keyframes rotateWave {
-            0% {
-                transform: translate(-50%, -50%) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) rotate(360deg);
-            }
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
         }
 
-        /* PALLONI DA CALCIO ANIMATI */
         .soccer-ball {
             position: absolute;
             font-size: 40px;
@@ -781,57 +172,20 @@
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.3));
         }
 
-        .soccer-ball:nth-child(1) {
-            top: 15%;
-            left: 10%;
-            animation-delay: 0s;
-        }
-
-        .soccer-ball:nth-child(2) {
-            top: 70%;
-            left: 85%;
-            animation-delay: 3s;
-        }
-
-        .soccer-ball:nth-child(3) {
-            top: 85%;
-            left: 15%;
-            animation-delay: 6s;
-        }
-
-        .soccer-ball:nth-child(4) {
-            top: 30%;
-            left: 80%;
-            animation-delay: 9s;
-        }
-
-        .soccer-ball:nth-child(5) {
-            top: 50%;
-            left: 5%;
-            animation-delay: 12s;
-        }
+        .soccer-ball:nth-child(1) { top: 15%; left: 10%; animation-delay: 0s; }
+        .soccer-ball:nth-child(2) { top: 70%; left: 85%; animation-delay: 3s; }
+        .soccer-ball:nth-child(3) { top: 85%; left: 15%; animation-delay: 6s; }
+        .soccer-ball:nth-child(4) { top: 30%; left: 80%; animation-delay: 9s; }
+        .soccer-ball:nth-child(5) { top: 50%; left: 5%; animation-delay: 12s; }
 
         @keyframes floatBall {
-            0% {
-                opacity: 0;
-                transform: translateY(0) rotate(0deg) scale(0.5);
-            }
-            10% {
-                opacity: 0.6;
-            }
-            50% {
-                transform: translateY(-50px) rotate(180deg) scale(1);
-            }
-            90% {
-                opacity: 0.6;
-            }
-            100% {
-                opacity: 0;
-                transform: translateY(0) rotate(360deg) scale(0.5);
-            }
+            0% { opacity: 0; transform: translateY(0) rotate(0deg) scale(0.5); }
+            10% { opacity: 0.6; }
+            50% { transform: translateY(-50px) rotate(180deg) scale(1); }
+            90% { opacity: 0.6; }
+            100% { opacity: 0; transform: translateY(0) rotate(360deg) scale(0.5); }
         }
 
-        /* PARTICELLE LUMINOSE */
         .particles {
             position: absolute;
             width: 100%;
@@ -858,23 +212,12 @@
         }
 
         @keyframes rise {
-            0% {
-                bottom: -10%;
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                bottom: 110%;
-                opacity: 0;
-            }
+            0% { bottom: -10%; opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { bottom: 110%; opacity: 0; }
         }
 
-        /* STELLE SCINTILLANTI */
         .star {
             position: absolute;
             width: 3px;
@@ -885,18 +228,10 @@
         }
 
         @keyframes twinkle {
-            0%, 100% {
-                opacity: 0;
-                transform: scale(0);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.5);
-                box-shadow: 0 0 15px white;
-            }
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 15px white; }
         }
 
-        /* LOGO CONTAINER CON EFFETTO GLOW */
         .logo-container {
             margin-bottom: 30px;
             animation: fadeInDown 1.5s ease-out, logoFloat 3s ease-in-out infinite;
@@ -904,8 +239,7 @@
             background: white;
             padding: 25px;
             border-radius: 25px;
-            box-shadow: 0 15px 50px rgba(0,0,0,0.3), 
-                        0 0 30px rgba(255,193,7,0.4);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3), 0 0 30px rgba(255,193,7,0.4);
             transition: all 0.3s ease;
             position: relative;
         }
@@ -927,27 +261,18 @@
         }
 
         @keyframes rotateBorder {
-            0% {
-                filter: hue-rotate(0deg);
-            }
-            100% {
-                filter: hue-rotate(360deg);
-            }
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
         }
 
         .logo-container:hover {
             transform: scale(1.1) rotate(3deg);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 
-                        0 0 50px rgba(255,193,7,0.6);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), 0 0 50px rgba(255,193,7,0.6);
         }
 
         @keyframes logoFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-15px);
-            }
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
         }
 
         .logo {
@@ -956,29 +281,20 @@
             display: block;
         }
 
-        /* TITOLO CON EFFETTI */
         h1 {
             color: white;
             font-size: 3.5em;
             margin-bottom: 20px;
             animation: fadeInUp 1.5s ease-out 0.3s backwards, textGlow 2s ease-in-out infinite alternate;
             z-index: 1;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3),
-                         0 0 20px rgba(255,193,7,0.5);
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.3), 0 0 20px rgba(255,193,7,0.5);
             position: relative;
             letter-spacing: 3px;
         }
 
         @keyframes textGlow {
-            0% {
-                text-shadow: 2px 2px 10px rgba(0,0,0,0.3),
-                             0 0 20px rgba(255,193,7,0.5);
-            }
-            100% {
-                text-shadow: 2px 2px 10px rgba(0,0,0,0.3),
-                             0 0 40px rgba(255,193,7,0.8),
-                             0 0 60px rgba(255,193,7,0.6);
-            }
+            0% { text-shadow: 2px 2px 10px rgba(0,0,0,0.3), 0 0 20px rgba(255,193,7,0.5); }
+            100% { text-shadow: 2px 2px 10px rgba(0,0,0,0.3), 0 0 40px rgba(255,193,7,0.8), 0 0 60px rgba(255,193,7,0.6); }
         }
 
         h1::after {
@@ -995,24 +311,19 @@
         }
 
         @keyframes expandLine {
-            to {
-                width: 100%;
-            }
+            to { width: 100%; }
         }
 
-        /* TAGLINE CON EFFETTO */
         .tagline {
             color: #ffc107;
             font-size: 1.5em;
             margin-bottom: 40px;
             animation: fadeInUp 1.5s ease-out 0.9s backwards;
             z-index: 1;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.3),
-                         0 0 20px rgba(255,193,7,0.3);
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.3), 0 0 20px rgba(255,193,7,0.3);
             font-weight: 500;
         }
 
-        /* PULSANTE CTA ANIMATO */
         .cta-button {
             background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
             color: #0066cc;
@@ -1057,12 +368,8 @@
         }
 
         @keyframes buttonPulse {
-            0%, 100% {
-                box-shadow: 0 10px 30px rgba(255,193,7,0.4);
-            }
-            50% {
-                box-shadow: 0 10px 40px rgba(255,193,7,0.7);
-            }
+            0%, 100% { box-shadow: 0 10px 30px rgba(255,193,7,0.4); }
+            50% { box-shadow: 0 10px 40px rgba(255,193,7,0.7); }
         }
 
         .cta-button span {
@@ -1096,9 +403,7 @@
             background: #ffc107;
         }
 
-        .history-section {
-            background: #f8f9fa;
-        }
+        .history-section { background: #f8f9fa; }
 
         .timeline {
             display: flex;
@@ -1118,9 +423,7 @@
             transition: transform 0.3s ease;
         }
 
-        .timeline-item:hover {
-            transform: translateY(-10px);
-        }
+        .timeline-item:hover { transform: translateY(-10px); }
 
         .timeline-number {
             font-size: 3em;
@@ -1135,20 +438,10 @@
             line-height: 1.6;
         }
 
-        .highlight {
-            color: #ffc107;
-            font-weight: bold;
-        }
+        .highlight { color: #ffc107; font-weight: bold; }
 
-        .banner-section {
-            background: white;
-            padding-bottom: 40px;
-        }
-
-        .banner-section-alt {
-            background: #f8f9fa;
-            padding: 80px 20px;
-        }
+        .banner-section { background: white; padding-bottom: 40px; }
+        .banner-section-alt { background: #f8f9fa; padding: 80px 20px; }
 
         .banner-container {
             margin-bottom: 50px;
@@ -1209,9 +502,7 @@
             font-style: italic;
         }
 
-        .achievements-section {
-            background: white;
-        }
+        .achievements-section { background: white; }
 
         .achievements-grid {
             display: grid;
@@ -1232,10 +523,7 @@
             transform: translateX(10px);
         }
 
-        .achievement-icon {
-            font-size: 2.5em;
-            margin-bottom: 15px;
-        }
+        .achievement-icon { font-size: 2.5em; margin-bottom: 15px; }
 
         .achievement-title {
             font-size: 1.3em;
@@ -1244,19 +532,14 @@
             font-weight: bold;
         }
 
-        .achievement-text {
-            color: #666;
-            line-height: 1.6;
-        }
+        .achievement-text { color: #666; line-height: 1.6; }
 
         .contact-section {
             background: linear-gradient(135deg, #ffc107 0%, #ffb300 100%);
             text-align: center;
         }
 
-        .contact-section .section-title {
-            color: #0066cc;
-        }
+        .contact-section .section-title { color: #0066cc; }
 
         .social-links {
             display: flex;
@@ -1281,18 +564,9 @@
             min-width: 150px;
         }
 
-        .social-link:hover {
-            transform: scale(1.1);
-        }
-
-        .social-icon {
-            font-size: 3em;
-        }
-
-        .social-name {
-            font-weight: bold;
-            font-size: 1.1em;
-        }
+        .social-link:hover { transform: scale(1.1); }
+        .social-icon { font-size: 3em; }
+        .social-name { font-weight: bold; font-size: 1.1em; }
 
         footer {
             background: #1a1a1a;
@@ -1302,233 +576,85 @@
         }
 
         @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
-        /* RESPONSIVE MOBILE */
         @media (max-width: 768px) {
-            .header {
-                padding: 10px 15px;
-            }
-
-            .header-content {
-                flex-wrap: wrap;
-            }
-
-            .header-left {
-                gap: 10px;
-            }
-
-            .header-title {
-                font-size: 1em;
-            }
-
-            .header-logo {
-                height: 40px;
-            }
-
-            .nav-links {
-                display: none;
-                width: 100%;
-                flex-direction: column;
-                text-align: center;
-                padding-top: 15px;
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero {
-                padding: 100px 20px 40px;
-                min-height: 90vh;
-            }
-
-            h1 {
-                font-size: 2em;
-                letter-spacing: 1px;
-            }
-
-            .tagline {
-                font-size: 1em;
-            }
-
-            .logo-container {
-                padding: 15px;
-            }
-
-            .logo {
-                width: 150px;
-            }
-
-            .cta-button {
-                padding: 15px 35px;
-                font-size: 1.1em;
-            }
-
-            .soccer-ball {
-                font-size: 30px;
-            }
-
-            .section {
-                padding: 50px 15px;
-            }
-
-            .section-title {
-                font-size: 1.8em;
-            }
-
-            .story-content {
-                padding: 30px 20px;
-            }
-
-            .story-title {
-                font-size: 1.8em;
-            }
-
-            .story-paragraph {
-                font-size: 1em;
-                text-align: left;
-            }
-
-            .banner-container {
-                padding: 20px 10px;
-            }
-
-            .banner-image {
-                max-width: 90%;
-            }
-
-            .timeline {
-                flex-direction: column;
-            }
-
-            .timeline-item {
-                max-width: 100%;
-            }
-
-            .achievements-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .social-links {
-                gap: 15px;
-            }
-
-            .social-link {
-                min-width: 130px;
-                padding: 15px;
-            }
-
-            .social-icon {
-                font-size: 2em;
-            }
+            .header { padding: 10px 15px; }
+            .header-content { flex-wrap: wrap; }
+            .header-left { gap: 10px; }
+            .header-title { font-size: 1em; }
+            .header-logo { height: 40px; }
+            .nav-links { display: none; width: 100%; flex-direction: column; text-align: center; padding-top: 15px; }
+            .nav-links.active { display: flex; }
+            .menu-toggle { display: block; }
+            .hero { padding: 100px 20px 40px; min-height: 90vh; }
+            h1 { font-size: 2em; letter-spacing: 1px; }
+            .tagline { font-size: 1em; }
+            .logo-container { padding: 15px; }
+            .logo { width: 150px; }
+            .cta-button { padding: 15px 35px; font-size: 1.1em; }
+            .soccer-ball { font-size: 30px; }
+            .section { padding: 50px 15px; }
+            .section-title { font-size: 1.8em; }
+            .story-content { padding: 30px 20px; }
+            .story-title { font-size: 1.8em; }
+            .story-paragraph { font-size: 1em; text-align: left; }
+            .banner-container { padding: 20px 10px; }
+            .banner-image { max-width: 90%; }
+            .timeline { flex-direction: column; }
+            .timeline-item { max-width: 100%; }
+            .achievements-grid { grid-template-columns: 1fr; }
+            .social-links { gap: 15px; }
+            .social-link { min-width: 130px; padding: 15px; }
+            .social-icon { font-size: 2em; }
         }
 
         @media (max-width: 480px) {
-            .header-title {
-                font-size: 0.9em;
-            }
-
-            .header-logo {
-                height: 35px;
-            }
-
-            h1 {
-                font-size: 1.5em;
-            }
-
-            .tagline {
-                font-size: 0.85em;
-            }
-
-            .logo {
-                width: 100px;
-            }
-
-            .cta-button {
-                padding: 12px 25px;
-                font-size: 1em;
-            }
-
-            .section {
-                padding: 40px 10px;
-            }
-
-            .section-title {
-                font-size: 1.5em;
-            }
-
-            .timeline-number {
-                font-size: 2em;
-            }
-
-            .timeline-text {
-                font-size: 1em;
-            }
-
-            .achievement-icon {
-                font-size: 2em;
-            }
-
-            .social-link {
-                min-width: 110px;
-                padding: 12px;
-            }
-
-            .banner-image {
-                max-width: 100%;
-            }
+            .header-title { font-size: 0.9em; }
+            .header-logo { height: 35px; }
+            h1 { font-size: 1.5em; }
+            .tagline { font-size: 0.85em; }
+            .logo { width: 100px; }
+            .cta-button { padding: 12px 25px; font-size: 1em; }
+            .section { padding: 40px 10px; }
+            .section-title { font-size: 1.5em; }
+            .timeline-number { font-size: 2em; }
+            .timeline-text { font-size: 1em; }
+            .achievement-icon { font-size: 2em; }
+            .social-link { min-width: 110px; padding: 12px; }
+            .banner-image { max-width: 100%; }
         }
 
         @media (max-width: 360px) {
-            .header-title {
-                font-size: 0.8em;
-            }
-
-            h1 {
-                font-size: 1.3em;
-            }
-
-            .logo {
-                width: 100px;
-            }
+            .header-title { font-size: 0.8em; }
+            h1 { font-size: 1.3em; }
+            .logo { width: 100px; }
         }
     </style>
 </head>
 <body>
-    
+
+    <!-- OVERLAY BLOCCO DEVTOOLS -->
+    <div id="devtools-blocker">
+        <div style="font-size: 5em;">⚽</div>
+        <h2>⛔ Accesso Negato</h2>
+        <p>Questa pagina è protetta.<br>Gli strumenti di sviluppo non sono consentiti.</p>
+    </div>
+
     <div class="hero">
-        <!-- Palloni da calcio animati -->
         <div class="soccer-ball">⚽</div>
         <div class="soccer-ball">⚽</div>
         <div class="soccer-ball">⚽</div>
         <div class="soccer-ball">⚽</div>
         <div class="soccer-ball">⚽</div>
         
-        <!-- Particelle luminose -->
         <div class="particles">
             <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
             <div class="particle" style="left: 20%; animation-delay: 2s;"></div>
@@ -1544,7 +670,6 @@
             <div class="particle" style="left: 35%; animation-delay: 8s;"></div>
         </div>
 
-        <!-- Stelle scintillanti -->
         <div class="star" style="top: 20%; left: 15%; animation-delay: 0s;"></div>
         <div class="star" style="top: 30%; left: 80%; animation-delay: 1s;"></div>
         <div class="star" style="top: 60%; left: 10%; animation-delay: 2s;"></div>
@@ -1566,80 +691,63 @@
     <div class="section banner-section" id="fratelli-bruno">
         <div class="story-content">
             <h3 class="story-title">Fratelli Antonio e Stefano Bruno</h3>
-            
             <p class="story-paragraph">
                 <strong>Il successo imprenditoriale targato AZZURRA;</strong> dalla Scuola Calcio di 280 iscritti al Centro Sportivo di proprietà.
             </p>
-            
             <p class="story-paragraph">
                 Orgoglio e vanto della Valle dell'Ufita, la Società Sportiva, fondata nel 2004 da Michele Bruno, rappresenta il calcio giovanile avellinese nei prestigiosi Campionati Federali Regionali (quest'anno alla quindicesima partecipazione consecutiva) e nei Tornei Nazionali in cui ha avuto l'onore di affrontare direttamente Società di Serie A del calibro di Atalanta e Roma.
             </p>
-            
             <p class="story-paragraph">
                 A Settembre, con il trasferimento di Matteo Biondi al Benevento, è salito a 19 il numero di giovani talenti cresciuti nell'accademia grottese e trasferiti in Club Professionistici, un vero e proprio record per una Scuola Calcio che svolge tutte le attività nel proprio Centro Sportivo di oltre 20.000 metri quadri, diventato un riferimento polifunzionale per centinaia di bambini, ma anche adulti e famiglie provenienti da ogni angolo d'Irpinia.
             </p>
-            
             <p class="story-paragraph">
                 Campus Estivo, party privati ed esclusivi con eventi personalizzati, allenamenti e ritiri per società sportive, il Centro Sportivo Azzurra non è solo calcio e la famiglia Bruno celebra un record di presenze ad appena un anno dall'inaugurazione.
             </p>
         </div>
-        
         <div class="banner-container">
             <img src="fotoantonioestefano.jpg.jpeg" alt="Fratelli Antonio e Stefano Bruno" class="banner-image">
         </div>
     </div>
 
-    <!-- SEZIONE 1: SCUOLA CALCIO -->
+    <!-- SEZIONE SCUOLA CALCIO -->
     <div class="section banner-section-alt" id="scuola-calcio">
         <div class="story-content">
             <h3 class="story-title">La Storia della Scuola Calcio Azzurra</h3>
-            
             <p class="story-paragraph">
                 Il 26 agosto 2004 segna l'inizio di una nuova realtà calcistica a Grottaminarda, in provincia di Avellino. Un grande appassionato di calcio, ex portiere professionista, Michele Bruno, decide di trasformare il suo amore per lo sport in un progetto educativo e sociale, avviando le pratiche burocratiche per fondare un'associazione sportiva dilettantistica a carattere giovanile.
             </p>
-            
             <p class="story-paragraph">
                 Il simbolo scelto per la scuola calcio è il delfino animale che incarna perfettamente i valori che si volevamo trasmettere: amicizia, empatia, altruismo e giovialità. Ai valori del delfino si abbinano i colori del sole e del cielo: giallo e blu, per dare vita ad un'identità visiva chiara, gioiosa e fortemente rappresentativa.
             </p>
-            
             <p class="story-paragraph">
                 Così nasce la <strong>Scuola Calcio Azzurra</strong>, una realtà che sin dall'inizio ha posto al centro il bambino, non solo come atleta ma come persona in crescita. L'obiettivo principale non era semplicemente insegnare il calcio, ma promuovere il divertimento, contrastare la sedentarietà e avvicinare i giovani all'attività motoria. Fin dal primo anno, una ventina tra bambini e ragazzi iniziarono a muovere i loro primi passi calcistici sul campo in terra battuta del paese di Grottaminarda. I risultati tecnici non tardarono ad arrivare, con le prime soddisfazioni in ambito provinciale.
             </p>
-            
-            <p class="story-paragraph">
-                Nei tornei, ma i traguardi più significativi furono raggiunti sul piano umano e sociale.
-            </p>
-            
+            <p class="story-paragraph">Nei tornei, ma i traguardi più significativi furono raggiunti sul piano umano e sociale.</p>
             <p class="story-paragraph">
                 L'Azzurra si distinse fin da subito per iniziative solidali: donazioni a favore dell'UNICEF e il sostegno a distanza di un bambino fino al compimento del diciotto anni, con invio periodico di materiale sportivo in un villaggio in Kenya, tra cui borsoni, tute, borracce, attrezzatura. Questo aspetto evidenzia come la scuola calcio non si sia mai limitata all'insegnamento tecnico, ma abbia voluto trasmettere ai giovani calciatori valori di solidarietà, rispetto e apertura verso il mondo.
             </p>
-            
             <p class="story-paragraph">
                 Con il passare degli anni, l'Azzurra è cresciuta fino a diventare una delle scuole calcio più grandi della Campania, con oltre 250 iscritti e un palmarès di quasi 100 trofei vinti in tutta Italia. Il percorso educativo e sportivo ha portato frutti anche in termini di talento calcistico: diciannove ragazzi cresciuti nella società hanno poi militato in club prestigiosi e uno di loro ha persino raggiunto la convocazione a Coverciano con la Nazionale italiana.
             </p>
         </div>
-        
         <div class="banner-container">
             <img src="bannerscuolacalcio.jpg" alt="Azzurra Scuola Calcio" class="banner-image">
         </div>
     </div>
 
-    <!-- SEZIONE 2: CENTRO SPORTIVO -->
+    <!-- SEZIONE CENTRO SPORTIVO -->
     <div class="section banner-section" id="centro-sportivo">
         <div class="story-content">
             <p class="story-paragraph">
                 Il 3 agosto 2024 segna una tappa fondamentale della sua storia: l'inaugurazione del nuovo centro sportivo Azzurra, una struttura di oltre ventimila metri quadri, con un'area dedicata non solo al calcio, ma anche al benessere, al relax e al divertimento. Questo traguardo dimostra come il progetto iniziale abbia preso forma nel tempo e ora si traduca in una realtà strutturata, moderna e aperta a tutta la comunità.
             </p>
-            
             <p class="story-paragraph">
                 La SSD Azzurra Calcio rappresenta oggi un esempio virtuoso di come il calcio giovanile possa essere strumento educativo, sociale e formativo, capace di trasformare una passione in un punto di riferimento territoriale grazie all'impegno costante di Michele Bruno e dei figli Antonio e Stefano.
             </p>
-            
             <p class="story-paragraph story-continue">
                 <strong>La Storia Continua...</strong>
             </p>
         </div>
-        
         <div class="banner-container">
             <img src="bannercentrosportivo.jpg" alt="Azzurra Centro Sportivo" class="banner-image">
         </div>
@@ -1650,21 +758,15 @@
         <div class="timeline">
             <div class="timeline-item">
                 <div class="timeline-number">2004</div>
-                <div class="timeline-text">
-                    Nasce <span class="highlight">Azzurra Calcio</span>, con la missione di formare giovani talenti e trasmettere i valori dello sport
-                </div>
+                <div class="timeline-text">Nasce <span class="highlight">Azzurra Calcio</span>, con la missione di formare giovani talenti e trasmettere i valori dello sport</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-number">20+</div>
-                <div class="timeline-text">
-                    Anni di <span class="highlight">esperienza</span> nel settore giovanile, crescendo generazioni di calciatori
-                </div>
+                <div class="timeline-text">Anni di <span class="highlight">esperienza</span> nel settore giovanile, crescendo generazioni di calciatori</div>
             </div>
             <div class="timeline-item">
                 <div class="timeline-number">2025</div>
-                <div class="timeline-text">
-                    Continuiamo a guardare al <span class="highlight">futuro</span> con entusiasmo e dedizione
-                </div>
+                <div class="timeline-text">Continuiamo a guardare al <span class="highlight">futuro</span> con entusiasmo e dedizione</div>
             </div>
         </div>
     </div>
@@ -1675,44 +777,32 @@
             <div class="achievement-card">
                 <div class="achievement-icon">⚽</div>
                 <div class="achievement-title">Formazione Tecnica</div>
-                <div class="achievement-text">
-                    Programmi di allenamento personalizzati per ogni fascia d'età, con focus sullo sviluppo tecnico individuale
-                </div>
+                <div class="achievement-text">Programmi di allenamento personalizzati per ogni fascia d'età, con focus sullo sviluppo tecnico individuale</div>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🏆</div>
                 <div class="achievement-title">Risultati Concreti</div>
-                <div class="achievement-text">
-                    Oltre 19 ragazzi promossi ai professionisti, inclusi giocatori che militano nel Benevento Calcio
-                </div>
+                <div class="achievement-text">Oltre 19 ragazzi promossi ai professionisti, inclusi giocatori che militano nel Benevento Calcio</div>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">👨‍🏫</div>
                 <div class="achievement-title">Staff Qualificato</div>
-                <div class="achievement-text">
-                    Allenatori con patentini UEFA e anni di esperienza nel settore giovanile
-                </div>
+                <div class="achievement-text">Allenatori con patentini UEFA e anni di esperienza nel settore giovanile</div>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🤝</div>
                 <div class="achievement-title">Valori Sportivi</div>
-                <div class="achievement-text">
-                    Educhiamo attraverso il calcio: rispetto, fair play, lavoro di squadra e determinazione
-                </div>
+                <div class="achievement-text">Educhiamo attraverso il calcio: rispetto, fair play, lavoro di squadra e determinazione</div>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">🏟️</div>
                 <div class="achievement-title">Centro Sportivo</div>
-                <div class="achievement-text">
-                    Strutture moderne e sicure per garantire il miglior ambiente di crescita
-                </div>
+                <div class="achievement-text">Strutture moderne e sicure per garantire il miglior ambiente di crescita</div>
             </div>
             <div class="achievement-card">
                 <div class="achievement-icon">👦</div>
                 <div class="achievement-title">Tutte le Categorie</div>
-                <div class="achievement-text">
-                    Seguiamo i ragazzi dalla scuola calcio fino alle categorie superiori
-                </div>
+                <div class="achievement-text">Seguiamo i ragazzi dalla scuola calcio fino alle categorie superiori</div>
             </div>
         </div>
     </div>
@@ -1752,25 +842,111 @@
     </footer>
 
     <script>
+        // =============================================
+        // PROTEZIONE DEVTOOLS
+        // =============================================
+
+        const blocker = document.getElementById('devtools-blocker');
+
+        // 1. Blocca tasto F12 e scorciatoie da tastiera
+        document.addEventListener('keydown', function(e) {
+            // F12
+            if (e.key === 'F12') {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+I / Cmd+Opt+I (Ispeziona)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'I' || e.key === 'i')) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+J / Cmd+Opt+J (Console)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'J' || e.key === 'j')) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+Shift+C / Cmd+Opt+C (Selettore elementi)
+            if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key === 'C' || e.key === 'c')) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+U (Visualizza sorgente)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'U' || e.key === 'u')) {
+                e.preventDefault();
+                return false;
+            }
+            // Ctrl+S (Salva pagina)
+            if ((e.ctrlKey || e.metaKey) && (e.key === 'S' || e.key === 's')) {
+                e.preventDefault();
+                return false;
+            }
+        });
+
+        // 2. Blocca click destro (menu contestuale)
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+            return false;
+        });
+
+        // 3. Rileva apertura DevTools tramite differenza di dimensione finestra
+        function checkDevTools() {
+            const threshold = 160;
+            const widthDiff = window.outerWidth - window.innerWidth;
+            const heightDiff = window.outerHeight - window.innerHeight;
+
+            if (widthDiff > threshold || heightDiff > threshold) {
+                blocker.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            } else {
+                blocker.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
+
+        // 4. Rileva DevTools tramite debugger (metodo avanzato)
+        (function detectDevToolsDebugger() {
+            let devtoolsOpen = false;
+            const element = new Image();
+            Object.defineProperty(element, 'id', {
+                get: function() {
+                    devtoolsOpen = true;
+                    blocker.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+            setInterval(function() {
+                devtoolsOpen = false;
+                console.log('%c', element);
+                if (!devtoolsOpen) {
+                    blocker.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            }, 1000);
+        })();
+
+        // 5. Controlla periodicamente le dimensioni
+        setInterval(checkDevTools, 500);
+        window.addEventListener('resize', checkDevTools);
+
+        // 6. Pulisci console periodicamente
+        setInterval(function() {
+            console.clear();
+        }, 100);
+
+        // =============================================
+        // MENU MOBILE
+        // =============================================
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+            if (navLinks) navLinks.classList.toggle('active');
         }
 
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
+                const nav = document.getElementById('navLinks');
+                if (nav) nav.classList.remove('active');
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
